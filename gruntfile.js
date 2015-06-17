@@ -39,6 +39,17 @@ module.exports = function (grunt) {
                         'test/*.spec.js'
                     ]
                 }
+            },
+            min: {
+                options: {
+                    files: [
+                        'bower_components/lodash/lodash.min.js',
+                        'bower_components/angular/angular.min.js',
+                        'bower_components/angular-mocks/angular-mocks.js',
+                        'angular-toolbox.min.js',
+                        'test/*.spec.js'
+                    ]
+                }
             }
         },
         exec: {
@@ -49,7 +60,6 @@ module.exports = function (grunt) {
         uglify: {
             dist: {
                 options: {
-                    mangle: false,
                     banner: '/*! <%= pkg.name %>#<%= pkg.version %> */\n'
                 },
                 files: {
@@ -60,7 +70,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('test', ['jshint:all', 'karma:unit']);
-    grunt.registerTask('build', ['test', 'uglify:dist']);
+    grunt.registerTask('build', ['test', 'uglify:dist', 'karma:min']);
     grunt.registerTask('travis', ['test', 'exec:coveralls']);
     grunt.registerTask('default', ['test']);
 };

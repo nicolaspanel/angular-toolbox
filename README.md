@@ -1,6 +1,6 @@
 # angular-toolbox
 
-Minimalist set of services and filters for [angularjs](https://angularjs.org/)
+Minimalist set of services and filters for [angularjs](https://angularjs.org/) (~3kB once minified)
 
 [![Build Status](https://travis-ci.org/nicolaspanel/angular-toolbox.png)](https://travis-ci.org/nicolaspanel/angular-toolbox) [![Coverage Status](https://coveralls.io/repos/nicolaspanel/angular-toolbox/badge.png?branch=master)](https://coveralls.io/r/nicolaspanel/angular-toolbox?branch=master)
 
