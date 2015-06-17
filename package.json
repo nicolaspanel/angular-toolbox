@@ -1,6 +1,6 @@
 {
   "name": "angular-toolbox",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Minimalist set of services and filters for angularjs",
   "main": "index.js",
   "scripts": {
