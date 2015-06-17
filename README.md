@@ -29,7 +29,10 @@ __Why does this depend on Lodash / Underscore?__
 
 
 # Usage
-TODO
+
+## any | some (filters)
+see [lodash doc](https://lodash.com/docs#some)
+
 
 # License
 

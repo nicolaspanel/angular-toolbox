@@ -66,7 +66,7 @@ module.exports = function (grunt) {
                     banner: '/*! <%= pkg.name %>#<%= pkg.version %> */\n'
                 },
                 files: {
-                    'angular-toolbox.min.js': ['angular-toolbox.js'],
+                    'angular-toolbox.min.js': ['angular-toolbox.js']
                 }
             }
         }
