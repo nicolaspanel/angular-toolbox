@@ -30,6 +30,11 @@ __Why does this depend on Lodash / Underscore?__
 
 # Usage
 
+__Note__: don't forget to include 'angular-toolbox' as dependency of your app
+```js
+angular.module('myApp', ['angular-toolbox']);
+```
+
 ## Arrays Filters
 ### first
 Gets the first element of `array`.
