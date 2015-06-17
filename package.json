@@ -4,7 +4,8 @@
   "description": "Minimalist set of services and filters for angularjs",
   "main": "index.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "postinstall": "bower install --config.interactive=false"
   },
   "repository": {
     "type": "git",
