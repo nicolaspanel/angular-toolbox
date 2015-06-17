@@ -3,12 +3,14 @@
 (function() {
     describe('Format Service Spec', function() {
         // Initialize global variables
-        var format;
+        var format, scope, $compile;
 
         beforeEach(module('angular-toolbox'));
 
-        beforeEach(inject(function(_format_) {
+        beforeEach(inject(function($rootScope, _format_, _$compile_) {
             format = _format_;
+            scope = $rootScope.$new();
+            $compile = _$compile_;
         }));
 
         it('should support numerical placeholder', function() {
@@ -22,6 +24,14 @@
         });
         it('should support object properties', function() {
             expect(format('{firstName} {lastName}', {firstName: 'Bobby', lastName: 'Fischer'})).toBe('Bobby Fischer');
+        });
+
+        it('should be bindable', function () {
+            scope.user =  {firstName: 'Bobby', lastName: 'Fischer'};
+            var element = angular.element('<span ng-bind="\'{0.firstName} {0.lastName}\' | format:user"></span>');
+            element = $compile(element)(scope);
+            scope.$digest();  // call watchers
+            expect(element.text()).toBe('Bobby Fischer');
         });
     });
 }());

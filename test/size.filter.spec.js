@@ -22,5 +22,9 @@
 		it('should return the number of values in the object', inject(function() {
 			expect(sizeFilter([1,2,3])).toEqual(3);
 		}));
+
+		it('should return the length of the string', inject(function() {
+			expect(sizeFilter('pebbles')).toEqual(7);
+		}));
 	});
 }());

@@ -13,7 +13,7 @@
 
         it('should do some service test', inject(function() {
             // The test logic
-            expect(removeNonWord('lorem! ipsum?')).toBe('lorem ipsum');
+            expect(removeNonWord('lorem ~!@#$%^&*()_+`-={}[]|\\:";\'/?><., ipsum')).toBe('lorem - ipsum');
         }));
     });
 }());

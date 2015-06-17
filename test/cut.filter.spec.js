@@ -3,12 +3,14 @@
 (function() {
     describe('cut filter Spec', function() {
         // Initialize global variables
-        var cutFilter;
+        var cutFilter, scope, $compile;
 
         beforeEach(module('angular-toolbox'));
 
-        beforeEach(inject(function(_cutFilter_) {
+        beforeEach(inject(function($rootScope, _cutFilter_, _$compile_) {
             cutFilter = _cutFilter_;
+            scope = $rootScope.$new();
+            $compile = _$compile_;
         }));
 
         it('should cut at 20char by default', inject(function() {
@@ -20,5 +22,12 @@
         it('should support custom tail', inject(function() {
             expect(cutFilter('abcdefghijkl...', 5, '.')).toBe('abcde.');
         }));
+        it('should be bindable', function () {
+            scope.text = 'abcdefghijklmnopqrstuvwxyz';
+            var element = angular.element('<span ng-bind="text | cut:5"></span>');
+            element = $compile(element)(scope);
+            scope.$digest();  // call watchers
+            expect(element.text()).toBe('abcde…');
+        });
     });
 }());

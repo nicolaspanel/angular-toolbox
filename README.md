@@ -30,8 +30,199 @@ __Why does this depend on Lodash / Underscore?__
 
 # Usage
 
-## any | some (filters)
-see [lodash doc](https://lodash.com/docs#some)
+## Arrays
+### first
+Gets the first element of `array`.
+```js
+$scope.array = [1, 2, 3]
+array | first // → 1
+
+[] | first // → undefined
+```
+
+### last
+Gets the last element of `array`.
+```js
+$scope.array = [1, 2, 3]
+array | last // → 3
+
+[] | last // → undefined
+```
+
+
+### join
+Join elements of `array` with given `separator` (default `', '`)
+```js
+$scope.array = [1, 2, 3]
+array | join // → 1, 2, 3
+
+array | join:'.' // → 1.2.3
+```
+
+
+### initial
+Gets all but the last element of array.
+```js
+$scope.array = [1, 2, 3]
+array | initial // → [1, 2]
+```
+
+
+### size
+Gets the size of `collection` by returning its length for array-like values or the number of own enumerable properties for objects.
+
+```js
+[1, 2, 3] | size // → 3
+
+{ 'a': 1, 'b': 2 } | size // → 2
+
+'pebbles' | size // → 7
+```
+
+see [loadsh doc](https://lodash.com/docs#size) for more information.
+
+## Collections
+
+### some
+Checks if `predicate` returns truthy for __any__ element of collection.
+
+```js
+[null, 0, 'yes', false] | some // → true
+
+$scope.users = [
+  { 'user': 'barney', 'active': true },
+  { 'user': 'fred',   'active': false }
+];
+
+users | some:{'user': 'barney', 'active': false} // → false
+
+users | some:'active':false; // → true
+
+users | some:'active' // → true
+```
+
+see [lodash doc](https://lodash.com/docs#some) for more information
+
+
+### every
+Checks if `predicate` returns truthy for __all__ elements of `collection`. 
+```js
+[null, 0, 'yes', false] | any // → true
+
+$scope.users = [
+  { 'user': 'barney', 'active': false },
+  { 'user': 'fred',   'active': false }
+];
+
+users | every:{ 'user': 'barney', 'active': false } // → false
+
+users | every:'active' // → false
+```
+see [lodash doc](https://lodash.com/docs#every) for more information
+
+
+### pluck
+Gets the property value of `path` from all elements in `collection`.
+```js
+$scope.users = [
+  { 'user': 'barney', 'age': 36 },
+  { 'user': 'fred',   'age': 40 }
+];
+
+users | pluck:'user' // → ['barney', 'fred']
+```
+see [lodash doc](https://lodash.com/docs#pluck) for more information
+
+
+
+## Strings
+
+### cut
+```js
+$scope.str = 'abcdefghijklmnopqrstuvwxyz';
+
+str | cut:5 // → abcde…
+
+str | cut:5:'.' // → abcde.
+```
+
+
+### format
+Formatting utility based on Python's `str.format()`. 
+
+```js
+$scope.user =  {firstName: 'Bobby', lastName: 'Fischer'};
+
+'{0.firstName} {0.lastName}' | format:user // → Bobby Fischer
+
+'{}, you have {} unread message{}' | format:'Steve':1 // → Steve, you have 1 unread message
+
+'The name\'s {1}. {0} {1}.' | format:'James':'Bond'  // → The name's Bond. James Bond.
+```
+
+
+### remove-non-word
+Remove non-word chars.
+
+```js
+$scope.str = 'lorem ~!@#$%^&*()_+`-={}[]|\\:";\'/?><., ipsum';
+
+str | remove-non-word // → lorem - ipsum
+```
+
+
+### replace-accents
+Replaces all accented chars with regular ones.
+
+__Important__: Only covers Basic Latin and Latin-1 unicode chars.
+
+```js
+$scope.str = 'lõrêm ípsûm';
+
+str | replace-accents // → lorem ipsum
+```
+
+### sluglify
+Convert to lower case, remove accents, remove non-word chars and replace spaces with the delimeter. The default delimeter is a hyphen.
+
+```js
+$scope.str = 'loremIpsum dolor spéçïãl chârs';
+
+str | sluglify // → lorem-ipsum-dolor-special-chars
+```
+
+### trim
+Remove chars or white-spaces from beginning and end of string.
+
+```js
+$scope.str = '   lorem ipsum   ';
+
+str | trim // → lorem ipsum
+```
+
+
+## Miscellaneoush
+
+### gt, gte, lt, lte
+```js
+$soope.value = 0;
+ 
+value | gt:0 // → false
+
+value | gte:0 // → true
+
+value | lt:2 // → true
+
+value | lte:-1 // → false
+```
+
+### safe
+Convert string to trusted html.
+
+```js
+$scope.html = '<b>Hello world&nbsp;!</b>';
+html | safe // → <b>Hello world&nbsp;!</b>
+```
 
 
 # License

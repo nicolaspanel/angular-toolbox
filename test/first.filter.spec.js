@@ -18,5 +18,8 @@
 		it('should returns the first element of an array', inject(function() {
 			expect(firstFilter([5, 4, 3, 2, 1])).toEqual(5);
 		}));
+        it('should return undefined if array is empty', function () {
+            expect(firstFilter([])).toBeUndefined();
+        });
 	});
 }());

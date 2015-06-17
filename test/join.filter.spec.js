@@ -14,8 +14,11 @@
 		it('should be testable', inject(function() {
 			expect(joinFilter).toBeDefined();
 		}));
-		it('should join using comma by default', inject(function() {
+		it('should join using ", " by default', inject(function() {
 			expect(joinFilter([0,1,2])).toEqual('0, 1, 2');
+		}));
+		it('should accept custom separator', inject(function() {
+			expect(joinFilter([0,1,2], '.')).toEqual('0.1.2');
 		}));
 	});
 }());

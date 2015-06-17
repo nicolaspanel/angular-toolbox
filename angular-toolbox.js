@@ -2,6 +2,7 @@
 
 angular.module('angular-toolbox', [])
     .filter('any', [function() { return _.some; }])
+    .filter('some', [function() { return _.some; }])
     .filter('cut', function() {
         return function (value, max, tail, wordwise) {
             if (!value) {
@@ -26,8 +27,8 @@ angular.module('angular-toolbox', [])
             return value + (tail || '…');
         };
     })
-    .filter('some', [function() { return _.some; }])
     .filter('every', [function() { return _.every; }])
+    .filter('all', [function() { return _.every; }])
     .filter('pluck', [function() { return _.pluck; }])
     .filter('first', [function() { return _.first; }])
     .filter('last', [function() { return _.last; }])

@@ -29,10 +29,21 @@ module.exports = function (grunt) {
                     type : 'lcov'
                 }
             },
-            unit: {
+            lodash: {
                 options: {
                     files: [
                         'bower_components/lodash/lodash.js',
+                        'bower_components/angular/angular.js',
+                        'bower_components/angular-mocks/angular-mocks.js',
+                        'angular-toolbox.js',
+                        'test/*.spec.js'
+                    ]
+                }
+            },
+            underscore: {
+                options: {
+                    files: [
+                        'bower_components/underscore/underscore.js',
                         'bower_components/angular/angular.js',
                         'bower_components/angular-mocks/angular-mocks.js',
                         'angular-toolbox.js',
@@ -72,7 +83,7 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('test', ['jshint:all', 'karma:unit']);
+    grunt.registerTask('test', ['jshint:all', 'karma:lodash', 'karma:underscore']);
     grunt.registerTask('build', ['test', 'uglify:dist', 'karma:min']);
     grunt.registerTask('travis', ['test', 'exec:coveralls']);
     grunt.registerTask('release', ['build', 'exec:release']);
