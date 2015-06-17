@@ -1,0 +1,32 @@
+{
+    "name": "angular-toolbox",
+    "version": "0.0.1",
+    "homepage": "https://github.com/nicolaspanel/angular-toolbox",
+    "authors": [
+        "Nicolas Panel <nicolas.panel@live.fr>"
+    ],
+    "description": "Minimalist set of services and filters for angularjs",
+    "main": "angular-toolbox.min.js",
+    "keywords": [
+        "angularjs",
+        "toolbox",
+        "underscore",
+        "lodash"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "lodash": ">=1.3.0",
+        "angular": "~1.x"
+    },
+    "devDependencies": {
+        "underscore": "~1.x",
+        "angular-mocks": "~1.x"
+    }
+}
