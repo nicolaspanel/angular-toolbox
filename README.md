@@ -30,11 +30,11 @@ __Why does this depend on Lodash / Underscore?__
 
 # Usage
 
-## Arrays
+## Arrays Filters
 ### first
 Gets the first element of `array`.
 ```js
-$scope.array = [1, 2, 3]
+$scope.array = [1, 2, 3];
 array | first // → 1
 
 [] | first // → undefined
@@ -43,7 +43,7 @@ array | first // → 1
 ### last
 Gets the last element of `array`.
 ```js
-$scope.array = [1, 2, 3]
+$scope.array = [1, 2, 3];
 array | last // → 3
 
 [] | last // → undefined
@@ -53,7 +53,7 @@ array | last // → 3
 ### join
 Join elements of `array` with given `separator` (default `', '`)
 ```js
-$scope.array = [1, 2, 3]
+$scope.array = [1, 2, 3];
 array | join // → 1, 2, 3
 
 array | join:'.' // → 1.2.3
@@ -63,7 +63,8 @@ array | join:'.' // → 1.2.3
 ### initial
 Gets all but the last element of array.
 ```js
-$scope.array = [1, 2, 3]
+$scope.array = [1, 2, 3];
+
 array | initial // → [1, 2]
 ```
 
@@ -81,7 +82,7 @@ Gets the size of `collection` by returning its length for array-like values or t
 
 see [loadsh doc](https://lodash.com/docs#size) for more information.
 
-## Collections
+## Collection filters
 
 ### some
 Checks if `predicate` returns truthy for __any__ element of collection.
@@ -106,6 +107,7 @@ see [lodash doc](https://lodash.com/docs#some) for more information
 
 ### every
 Checks if `predicate` returns truthy for __all__ elements of `collection`. 
+
 ```js
 [null, 0, 'yes', false] | any // → true
 
@@ -135,7 +137,7 @@ see [lodash doc](https://lodash.com/docs#pluck) for more information
 
 
 
-## Strings
+## String filters
 
 ### cut
 ```js
@@ -201,7 +203,7 @@ str | trim // → lorem ipsum
 ```
 
 
-## Miscellaneoush
+## Miscellaneoush filters
 
 ### gt, gte, lt, lte
 ```js
