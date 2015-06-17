@@ -18,6 +18,11 @@ Include `angular-toolbox` and its dependency in your application:
 <script src="bower_components/angular-toolbox/angular-toolbox.js"></script>
 ```
 
+Include `angular-toolbox` in your app dependencies
+```js
+angular.module('myApp', ['angular-toolbox']);
+```
+
 
 __Note__: depends on [angularjs](https://angularjs.org/) and [lodash](https://lodash.com/) (or [underscore.js](http://underscorejs.org/)).
 
@@ -29,11 +34,6 @@ __Why does this depend on Lodash / Underscore?__
 
 
 # Usage
-
-__Note__: don't forget to include 'angular-toolbox' as dependency of your app
-```js
-angular.module('myApp', ['angular-toolbox']);
-```
 
 ## Arrays Filters
 ### first
