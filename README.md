@@ -19,7 +19,7 @@ Include `angular-toolbox` and its dependency in your application:
 ```
 
 
-__Note__: depends on Angular and [Lodash](https://lodash.com/) (or [Underscore](http://underscorejs.org/)).
+__Note__: depends on [angularjs](https://angularjs.org/) and [lodash](https://lodash.com/) (or [underscore.js](http://underscorejs.org/)).
 
 
 __Why does this depend on Lodash / Underscore?__
