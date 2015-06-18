@@ -24,18 +24,22 @@ angular.module('myApp', ['angular-toolbox']);
 ```
 
 
-__Note__: depends on [angularjs](https://angularjs.org/) and [lodash](https://lodash.com/) (or [underscore.js](http://underscorejs.org/)).
-
-
-__Why does this depend on Lodash / Underscore?__
+__Note__: `angular-toolbox` depends on [angularjs](https://angularjs.org/) and [lodash](https://lodash.com/) (or [underscore.js](http://underscorejs.org/)). __Why?__
 
  > I could've done the code so that I don't depend on Underscore nor Lodash, but I think both libraries make your life SO much easier. They have all of the "functional" stuff like map, reduce, filter, find, etc. With these libraries, you always work with immutable stuff, you get compatibility for browsers which don't implement ECMA5 nor some of these cool methods, and they're actually quicker. So, why not use it?
  > [mgonto](https://github.com/mgonto/restangular#why-does-this-depend-on-lodash--underscore)
 
 
+# Quick reference
+
+ - Array filters: [first](#first) [last](#last) [join](#join) [initial](#initial) [size](#size)
+ - Collection filters: [some](#some) [every](#every) [pluck](#pluck)
+ - String filters : [cut](#cut) [format](#format) [remove-non-word](#remove-non-word) [replace-accents](#replace-accents) [sluglify](#sluglify) [trim](#trim)
+ - Miscellaneoush filters: [gt, gte, lt, lte](#gt-gte-lt-lte) [safe](#safe)
+
 # Usage
 
-## Arrays Filters
+## Array filters
 ### first
 Gets the first element of `array`.
 ```js
