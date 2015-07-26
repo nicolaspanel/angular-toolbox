@@ -187,10 +187,13 @@ str | replace-accents // → lorem ipsum
 ### sluglify
 Convert to lower case, remove accents, remove non-word chars and replace spaces with the delimeter. The default delimeter is a hyphen.
 
+Usage as filter:
+
 ```js
 $scope.str = 'loremIpsum dolor spéçïãl chârs';
-
-str | sluglify // → lorem-ipsum-dolor-special-chars
+```
+```html
+<span ng-bind="str | sluglify"></span> <!-- converts 'loremIpsum dolor spéçïãl chârs' to 'lorem-ipsum-dolor-special-chars' -->
 ```
 
 ### trim

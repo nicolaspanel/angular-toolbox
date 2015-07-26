@@ -185,6 +185,24 @@ angular.module('angular-toolbox', [])
         };
     }])
     .filter('slugify', ['slugify', function (slugify) { return slugify; }])
+    .directive('slugify', ['slugify', function(slugify) {
+        return {
+            restrict: 'A',
+            require: 'ngModel',
+            link: function(scope, elem, attr, ngModel) {
+
+                //For DOM -> model validation
+                ngModel.$parsers.unshift(function(value) {
+                    return slugify(value);
+                });
+
+                //For model -> DOM validation
+                ngModel.$formatters.unshift(function(value) {
+                    return value;
+                });
+            }
+        };
+    }])
     .filter('safe', ['$sce', function($sce) {
         return function(input) {
             return $sce.trustAsHtml(input);
