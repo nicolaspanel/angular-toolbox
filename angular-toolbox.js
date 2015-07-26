@@ -94,7 +94,7 @@ angular.module('angular-toolbox', [])
         };
         /* jshint ignore:end */
     })
-    .filter('format', ['format',  function(format) { return function() { return format.apply(null, arguments); }; }])
+    .filter('format', ['format',  function(format) { return format; }])
     .factory('trim', function() {
         /**
          * Remove white-spaces from beginning and end of string.
