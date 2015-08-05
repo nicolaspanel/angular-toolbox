@@ -208,4 +208,6 @@ angular.module('angular-toolbox', [])
         return function(input) {
             return $sce.trustAsHtml(input);
         };
-    }]);
+    }])
+    .filter('select', function() { return _.select; })
+    .filter('reject', function() { return _.reject; });

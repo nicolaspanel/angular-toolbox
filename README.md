@@ -33,7 +33,7 @@ __Note__: `angular-toolbox` depends on [angularjs](https://angularjs.org/) and [
 # Quick reference
 
  - Array filters: [first](#first) [last](#last) [join](#join) [initial](#initial) [size](#size)
- - Collection filters: [some](#some) [every](#every) [pluck](#pluck)
+ - Collection filters: [some](#some) [every](#every) [pluck](#pluck) [select](#select) [reject](#reject)
  - String filters : [cut](#cut) [format](#format) [remove-non-word](#remove-non-word) [replace-accents](#replace-accents) [sluglify](#sluglify) [trim](#trim)
  - Miscellaneoush filters: [gt, gte, lt, lte](#gt-gte-lt-lte) [safe](#safe)
 
@@ -100,13 +100,13 @@ Checks if `predicate` returns truthy for __any__ element of collection.
 [null, 0, 'yes', false] | some // → true
 
 $scope.users = [
-  { 'user': 'barney', 'active': true },
-  { 'user': 'fred',   'active': false }
+  {user: 'barney', active: true },
+  {user: 'fred',   active: false }
 ];
 
-users | some:{'user': 'barney', 'active': false} // → false
+users | some:{'user': 'barney', active: false} // → false
 
-users | some:'active':false; // → true
+users | some:active:false; // → true
 
 users | some:'active' // → true
 ```
@@ -121,11 +121,11 @@ Checks if `predicate` returns truthy for __all__ elements of `collection`.
 [null, 0, 'yes', false] | any // → true
 
 $scope.users = [
-  { 'user': 'barney', 'active': false },
-  { 'user': 'fred',   'active': false }
+  {user: 'barney', active: false },
+  {user: 'fred',   active: false }
 ];
 
-users | every:{ 'user': 'barney', 'active': false } // → false
+users | every:{user: 'barney', active: false } // → false
 
 users | every:'active' // → false
 ```
@@ -136,14 +136,49 @@ see [lodash doc](https://lodash.com/docs#every) for more information
 Gets the property value of `path` from all elements in `collection`.
 ```js
 $scope.users = [
-  { 'user': 'barney', 'age': 36 },
-  { 'user': 'fred',   'age': 40 }
+  {user: 'barney', age: 36 },
+  {user: 'fred',   age: 40 }
 ];
 
 users | pluck:'user' // → ['barney', 'fred']
 ```
 see [lodash doc](https://lodash.com/docs#pluck) for more information
 
+
+### reject
+The opposite of [select](#select); this method returns the elements of collection that predicate does not return truthy for.
+
+```js
+[null, 0, 'yes', false] | reject // → [null, false]
+
+$scope.users = [
+  {user: 'barney', active: false },
+  {user: 'fred',   active: false }
+];
+
+users | reject:{user: 'barney'} // → [Object({user: 'fred', active: false })]
+
+users | reject:'active' // →  [Object({user: 'barney', active: false }), Object({user: 'fred',   active: false })]
+```
+see [lodash doc](https://lodash.com/docs#reject) for more information
+
+
+### select
+Looks through each value in the list, returning an array of all the values that pass a truth test (predicate).
+
+```js
+[null, 0, 'yes', true, false] | select // → ['yes', true]
+
+$scope.users = [
+  {user: 'barney', active: false },
+  {user: 'fred',   active: false }
+];
+
+users | select:{user: 'barney'} // → [Object({user: 'barney', active: false })]
+
+users | select:'active' // →  []
+```
+see [lodash doc](https://lodash.com/docs#filter) for more information
 
 
 ## String filters
