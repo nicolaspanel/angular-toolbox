@@ -181,7 +181,7 @@ angular.module('angular-toolbox', [])
             str = trim(str) //should come after removeNonWord
                 .replace(/ +/g, delimeter) //replace spaces with delimeter
                 .toLowerCase();
-            return str;
+            return str || undefined;
         };
     }])
     .filter('slugify', ['slugify', function (slugify) { return slugify; }])
@@ -189,6 +189,7 @@ angular.module('angular-toolbox', [])
         return {
             restrict: 'A',
             require: 'ngModel',
+            priority: 10,  // make sure it is executed BEFORE validation directives
             link: function(scope, elem, attr, ngModel) {
 
                 //For DOM -> model validation
