@@ -33,7 +33,7 @@ __Note__: `angular-toolbox` depends on [angularjs](https://angularjs.org/) and [
 # Quick reference
 
  - Array filters: [first](#first) [last](#last) [join](#join) [initial](#initial) [size](#size)
- - Collection filters: [some](#some) [every](#every) [pluck](#pluck) [select](#select) [reject](#reject)
+ - Collection filters: [some](#some) [every](#every) [pluck](#pluck) [select](#select) [reject](#reject) [contains](#contains)
  - String filters : [cut](#cut) [format](#format) [remove-non-word](#remove-non-word) [replace-accents](#replace-accents) [sluglify](#sluglify) [trim](#trim)
  - Miscellaneoush filters: [gt, gte, lt, lte](#gt-gte-lt-lte) [safe](#safe)
 
@@ -92,6 +92,13 @@ Gets the size of `collection` by returning its length for array-like values or t
 see [loadsh doc](https://lodash.com/docs#size) for more information.
 
 ## Collection filters
+
+### contains
+Returns true if the value is present in the list
+```js
+[1,2,3] | contains:1 // → true
+[1,2,3] | contains:0 // → false
+```
 
 ### some
 Checks if `predicate` returns truthy for __any__ element of collection.

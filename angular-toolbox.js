@@ -210,4 +210,5 @@ angular.module('angular-toolbox', [])
         };
     }])
     .filter('select', function() { return _.select; })
-    .filter('reject', function() { return _.reject; });
+    .filter('reject', function() { return _.reject; })
+    .filter('contains', function() { return _.contains; });
