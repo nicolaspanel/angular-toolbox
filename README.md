@@ -32,7 +32,7 @@ __Note__: `angular-toolbox` depends on [angularjs](https://angularjs.org/) and [
 
 # Quick reference
 
- - Array filters: [first](#first) [last](#last) [join](#join) [initial](#initial) [size](#size)
+ - Array filters: [first](#first) [last](#last) [join](#join) [initial](#initial) [size](#size) [uniq](#uniq)
  - Collection filters: [some](#some) [every](#every) [pluck](#pluck) [select](#select) [reject](#reject) [contains](#contains)
  - String filters : [cut](#cut) [format](#format) [remove-non-word](#remove-non-word) [replace-accents](#replace-accents) [sluglify](#sluglify) [trim](#trim)
  - Miscellaneoush filters: [gt, gte, lt, lte](#gt-gte-lt-lte) [safe](#safe)
@@ -48,6 +48,8 @@ array | first // → 1
 
 [] | first // → undefined
 ```
+
+Alias: __head__
 
 ### last
 Gets the last element of `array`.
@@ -91,14 +93,26 @@ Gets the size of `collection` by returning its length for array-like values or t
 
 see [loadsh doc](https://lodash.com/docs#size) for more information.
 
+### uniq
+
+Produces a duplicate-free version of the array, using === to test object equality
+
+```js
+[1, 2, 1, 4, 1, 3] | uniq // → [1, 2, 4, 3]
+```
+
+Alias: __unique__
+
 ## Collection filters
 
-### contains
+### includes
 Returns true if the value is present in the list
 ```js
-[1,2,3] | contains:1 // → true
-[1,2,3] | contains:0 // → false
+[1,2,3] | includes:1 // → true
+[1,2,3] | includes:0 // → false
 ```
+
+Aliases: __contains__, __include__
 
 ### some
 Checks if `predicate` returns truthy for __any__ element of collection.
@@ -118,7 +132,9 @@ users | some:active:false; // → true
 users | some:'active' // → true
 ```
 
-see [lodash doc](https://lodash.com/docs#some) for more information
+Alias: __any__
+
+See [lodash doc](https://lodash.com/docs#some) for more information
 
 
 ### every
@@ -136,7 +152,10 @@ users | every:{user: 'barney', active: false } // → false
 
 users | every:'active' // → false
 ```
-see [lodash doc](https://lodash.com/docs#every) for more information
+
+Alias: __all__
+
+See [lodash doc](https://lodash.com/docs#every) for more information
 
 
 ### pluck

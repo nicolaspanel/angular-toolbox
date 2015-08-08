@@ -21,5 +21,17 @@
         it('should return undefined if array is empty', function () {
             expect(firstFilter([])).toBeUndefined();
         });
+
+        describe('head alias', function () {
+            var headFilter;
+
+            beforeEach(inject(function(_headFilter_) {
+                headFilter = _headFilter_;
+            }));
+
+            it('should be an alias', inject(function() {
+                expect(headFilter).toBe(firstFilter);
+            }));
+        });
 	});
 }());

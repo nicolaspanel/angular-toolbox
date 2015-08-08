@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('angular-toolbox', [])
-    .filter('any', [function() { return _.some; }])
     .filter('some', [function() { return _.some; }])
-    .filter('cut', function() {
+    .filter('any', ['someFilter', function(someFilter) { return someFilter; }])
+    .filter('cut', [function() {
         return function (value, max, tail, wordwise) {
             if (!value) {
                 return '';
@@ -26,11 +26,12 @@ angular.module('angular-toolbox', [])
 
             return value + (tail || '…');
         };
-    })
+    }])
     .filter('every', [function() { return _.every; }])
-    .filter('all', [function() { return _.every; }])
+    .filter('all', ['everyFilter', function(everyFilter) { return everyFilter; }])
     .filter('pluck', [function() { return _.pluck; }])
     .filter('first', [function() { return _.first; }])
+    .filter('head', ['firstFilter', function(fistFilter) { return fistFilter; }])
     .filter('last', [function() { return _.last; }])
     .filter('initial', [function() { return _.initial; }])
     .filter('size', [function() { return _.size; }])
@@ -209,6 +210,10 @@ angular.module('angular-toolbox', [])
             return $sce.trustAsHtml(input);
         };
     }])
-    .filter('select', function() { return _.select; })
-    .filter('reject', function() { return _.reject; })
-    .filter('contains', function() { return _.contains; });
+    .filter('select', [function() { return _.select; }])
+    .filter('reject', [function() { return _.reject; }])
+    .filter('includes', [function() { return _.contains; }])
+    .filter('contains', ['includesFilter', function(includesFilter) { return includesFilter; }])
+    .filter('include', ['includesFilter', function(includesFilter) { return includesFilter; }])
+    .filter('uniq', [function() { return _.uniq; }])
+    .filter('unique', ['uniqFilter', function(uniqFilter) { return uniqFilter; }]);
