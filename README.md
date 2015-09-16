@@ -32,7 +32,7 @@ __Note__: `angular-toolbox` depends on [angularjs](https://angularjs.org/) and [
 
 # Quick reference
 
- - Array filters: [first](#first) [last](#last) [join](#join) [initial](#initial) [size](#size) [uniq](#uniq)
+ - Array filters: [first](#first) [last](#last) [join](#join) [initial](#initial) [size](#size) [uniq](#uniq) [without](#without)
  - Collection filters: [some](#some) [every](#every) [pluck](#pluck) [select](#select) [reject](#reject) [contains](#contains)
  - String filters : [cut](#cut) [format](#format) [remove-non-word](#remove-non-word) [replace-accents](#replace-accents) [sluglify](#sluglify) [trim](#trim)
  - Miscellaneoush filters: [gt, gte, lt, lte](#gt-gte-lt-lte) [safe](#safe)
@@ -102,6 +102,18 @@ Produces a duplicate-free version of the array, using === to test object equalit
 ```
 
 Alias: __unique__
+
+
+### without
+Creates an array excluding all provided values.
+
+```js
+[null, 0, 'yes', false] | without:0 // → [null, 'yes', false]
+
+```
+see [lodash doc](https://lodash.com/docs#without) for more information
+
+
 
 ## Collection filters
 
