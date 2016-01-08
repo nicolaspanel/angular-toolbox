@@ -68,7 +68,7 @@ module.exports = function (grunt) {
                 command: 'STRICT_REQUIRE=1 cat ./coverage/**/lcov.info | ./node_modules/.bin/coveralls && rm -rf ./coverage'
             },
             release: {
-                command: 'git add . && git commit -am "release v<%= pkg.version %>" && git push origin master && git tag -a v<%= pkg.version %> -m "release v<%= pkg.version %>" && git push origin v<%= pkg.version %>'
+                command: 'git add . && git commit -am "release v<%= pkg.version %>" && git push --all && git tag -a v<%= pkg.version %> -m "release v<%= pkg.version %>" && git push --tags'
             }
         },
         uglify: {
@@ -87,6 +87,5 @@ module.exports = function (grunt) {
     grunt.registerTask('build', ['test', 'uglify:dist', 'karma:min']);
     grunt.registerTask('travis', ['test', 'exec:coveralls']);
     grunt.registerTask('release', ['build', 'exec:release']);
-
     grunt.registerTask('default', ['test']);
 };

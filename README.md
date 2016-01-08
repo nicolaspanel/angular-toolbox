@@ -32,7 +32,7 @@ __Note__: `angular-toolbox` depends on [angularjs](https://angularjs.org/) and [
 
 # Quick reference
 
- - Array filters: [first](#first) [last](#last) [join](#join) [initial](#initial) [size](#size) [uniq](#uniq) [without](#without)
+ - Array filters: [first](#first) [take](#take) [last](#last) [join](#join) [initial](#initial) [size](#size) [uniq](#uniq) [without](#without)
  - Collection filters: [some](#some) [every](#every) [pluck](#pluck) [select](#select) [reject](#reject) [contains](#contains)
  - String filters : [cut](#cut) [format](#format) [remove-non-word](#remove-non-word) [replace-accents](#replace-accents) [sluglify](#sluglify) [trim](#trim)
  - Miscellaneoush filters: [gt, gte, lt, lte](#gt-gte-lt-lte) [safe](#safe)
@@ -50,6 +50,14 @@ array | first // → 1
 ```
 
 Alias: __head__
+
+### take
+Creates a slice of `array` with n elements taken from the beginning.
+```js
+$scope.array = [1, 2, 3];
+array | take // → [1]
+array | take:2 // → [1, 2]
+```
 
 ### last
 Gets the last element of `array`.

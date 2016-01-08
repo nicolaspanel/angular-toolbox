@@ -31,6 +31,11 @@ angular.module('angular-toolbox', [])
     .filter('all', ['everyFilter', function(everyFilter) { return everyFilter; }])
     .filter('pluck', [function() { return _.pluck; }])
     .filter('first', [function() { return _.first; }])
+    .filter('take', [function() {
+        return function(arr, i){
+            return _.take(arr, i||1);
+        };
+    }])
     .filter('head', ['firstFilter', function(fistFilter) { return fistFilter; }])
     .filter('last', [function() { return _.last; }])
     .filter('initial', [function() { return _.initial; }])
@@ -40,7 +45,7 @@ angular.module('angular-toolbox', [])
     .filter('lt', [function() { return function (a, b) { return a<b; }; }])
     .filter('lte', [function() { return function (a, b) { return a<=b; }; }])
     .filter('join', [function() { return function (list, sep) { return list.join(sep || ', '); }; }])
-    .factory('format', function() {
+    .factory('format', [function() {
         /* jshint ignore:start */
         var __slice = [].slice;
         function lookup(object, key) {
@@ -94,9 +99,9 @@ angular.module('angular-toolbox', [])
             });
         };
         /* jshint ignore:end */
-    })
+    }])
     .filter('format', ['format',  function(format) { return format; }])
-    .factory('trim', function() {
+    .factory('trim', [function() {
         /**
          * Remove white-spaces from beginning and end of string.
          * @example trim('   lorem ipsum   ') -> 'lorem ipsum'
@@ -104,7 +109,7 @@ angular.module('angular-toolbox', [])
          * @return {string}
          */
         return function(str){ return (str || '').replace(/^\s+|\s+$/g, ''); };
-    })
+    }])
     .filter('trim', ['trim', function (trim) { return trim; }])
     .factory('removeNonWord', [function() {
         /**
