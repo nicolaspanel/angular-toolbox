@@ -68,7 +68,7 @@ module.exports = function (grunt) {
                 command: 'STRICT_REQUIRE=1 cat ./coverage/**/lcov.info | ./node_modules/.bin/coveralls && rm -rf ./coverage'
             },
             release: {
-                command: 'git add . && git commit -am "release v<%= pkg.version %>" && git push --all && git tag -a v<%= pkg.version %> -m "release v<%= pkg.version %>" && git push --tags'
+                command: 'git tag -a v<%= pkg.version %> -m "release v<%= pkg.version %>" && git push --tags'
             }
         },
         uglify: {
