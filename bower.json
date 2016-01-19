@@ -1,6 +1,6 @@
 {
     "name": "angular-toolbox",
-    "version": "1.6.0",
+    "version": "1.7.0",
     "homepage": "https://github.com/nicolaspanel/angular-toolbox",
     "authors": [
         "Nicolas Panel <nicolas.panel@live.fr>"
@@ -22,7 +22,7 @@
         "tests"
     ],
     "dependencies": {
-        "lodash": ">=1.3.0",
+        "lodash": "<4",
         "angular": "~1.x"
     },
     "devDependencies": {

@@ -222,4 +222,11 @@ angular.module('angular-toolbox', [])
     .filter('contains', ['includesFilter', function(includesFilter) { return includesFilter; }])
     .filter('include', ['includesFilter', function(includesFilter) { return includesFilter; }])
     .filter('uniq', [function() { return _.uniq; }])
+    .filter('drop', [function() {
+        return function() {
+            if (arguments.length > 1 && arguments[1] < 0){ arguments[1] = 0; } // fix underscorejs behaviour that returns elements on negative indexes
+            return _.drop.apply(null, arguments);
+        };
+    }])
+    .filter('skip', ['dropFilter', function(dropFilter) { return dropFilter; }])
     .filter('unique', ['uniqFilter', function(uniqFilter) { return uniqFilter; }]);
